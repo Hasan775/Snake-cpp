@@ -1,0 +1,6 @@
++ - snake's head
+# - snake's body
+= - apple
+W - it's sharp(don't try to touch it)
+- - top and bottom border of play zone
+You can choose any amount of sharp things and speed. Please don't make speed and sharp things amount negative.You can make amount of sharp things equal to zero but not speed.
