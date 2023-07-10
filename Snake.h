@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <math.h>
 using namespace std;
 class Snake{
 public:
@@ -31,6 +32,20 @@ public:
         }
         return 0;
     };
+    char pSymbol(int id){
+        int x = body[id][0] - body[id - 1][0];
+        int y = body[id][1] - body[id - 1][1];
+        if (x == 0 && y == -1){
+            return 'v';
+        }
+        if (x == 0 && y == 1){
+            return '^';
+        }
+        if (x == -1 && y == 0){
+            return '>';
+        }
+        return '<';
+    }
     int ChangeDir(vector<int> dir){
         if (dir[0] + direction[0] != 0){
             direction = dir;

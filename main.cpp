@@ -8,6 +8,10 @@
 #define HEIGHT 10
 using namespace std;
 int drawFrame(int height, int width, int delayTime, Snake snake, Apple apple, Sharp sharp){
+    system("cls");
+    for (int i = 0; i < width + 2; i++){
+        cout<<"-";
+    }
     vector<vector<char>> matrix;
     for(int i = 0; i < height; i++){
         matrix.push_back({});
@@ -16,23 +20,24 @@ int drawFrame(int height, int width, int delayTime, Snake snake, Apple apple, Sh
         }
     }
     for (int i = 1; i < snake.body.size(); i++){
-        matrix[snake.body[i][1]][snake.body[i][0]] = '#';
+        matrix[snake.body[i][1]][snake.body[i][0]] = snake.pSymbol(i);
     }
     for (auto i : sharp.sharps){
         matrix[i[1]][i[0]] = 'W';
     }
     matrix[snake.body[0][1]][snake.body[0][0]] = '+';
     matrix[apple.apple[1]][apple.apple[0]] = '=';
+    cout<<"\n";
     for (auto i : matrix){
         for (auto j : i){
             cout<<j;
         }
-        cout<<'\n';
+        cout<<"\n";
     }
-    for (int i = 0; i < width; i++){
+
+    for (int i = 0; i < width + 2; i++){
         cout<<"-";
     }
-    cout<<"\n";
     Sleep(delayTime);
     return 0;
 }
